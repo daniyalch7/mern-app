@@ -11,7 +11,11 @@ const questionRoutes = require("./routes/questions");
 const answerRoutes = require("./routes/answers");
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://example.com"],
+  })
+);
 
 // * Connect to db
 connectDB();
