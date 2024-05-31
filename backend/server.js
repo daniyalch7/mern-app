@@ -11,19 +11,21 @@ const questionRoutes = require("./routes/questions");
 const answerRoutes = require("./routes/answers");
 
 const app = express();
+
+// CORS middleware
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://example.com"],
+    origin: ["http://localhost:3000"], // Add other origins as needed
   })
 );
 
-// * Connect to db
+// Connect to the database
 connectDB();
 
-// * Parse body middleware
+// Parse body middleware
 app.use(express.json());
 
-// * Mounting routes
+// Mounting routes
 app.use("/api/auth", authRoutes);
 app.use("/api/questions", questionRoutes);
 app.use("/api/answers", answerRoutes);
@@ -31,5 +33,5 @@ app.use("/api/answers", answerRoutes);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`Server is up and running on PORT`, PORT);
+  console.log(`Server is up and running on PORT ${PORT}`);
 });
