@@ -13,7 +13,12 @@ const answerRoutes = require("./routes/answers");
 const app = express();
 
 // CORS middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000", // Allow requests from localhost
+    credentials: true, // Allow credentials if needed
+  })
+);
 
 // Connect to the database
 connectDB();
