@@ -15,16 +15,6 @@ const app = express();
 // CORS middleware
 app.use(cors());
 
-app.options("/api/auth/register", (req, res) => {
-  // Set CORS headers
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
-  // Respond to the preflight request
-  res.status(200).end();
-});
-
 // Connect to the database
 connectDB();
 
