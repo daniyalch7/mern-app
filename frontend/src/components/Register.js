@@ -64,20 +64,34 @@ function Register() {
         theme: "light",
       });
     } else {
-      const response = await axios.post(
-        "mern-ovuhinml1-daniyal-chs-projects.vercel.app/api/auth/register",
-        {
-          name,
-          email,
-          password,
-        }
-      );
+      try {
+        const response = await axios.post(
+          "https://mern-ovuhinml1-daniyal-chs-projects.vercel.app/api/auth/register",
+          {
+            name,
+            email,
+            password,
+          }
+        );
 
-      console.log(response);
+        console.log(response);
 
-      dispatch(storeUserData(response.data));
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("user", JSON.stringify(response.data.user));
+        dispatch(storeUserData(response.data));
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("user", JSON.stringify(response.data.user));
+      } catch (error) {
+        console.error("Error during registration:", error);
+        toast.error("Registration failed!", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
     }
   };
 
