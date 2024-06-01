@@ -64,11 +64,14 @@ function Register() {
         theme: "light",
       });
     } else {
-      const response = await axios.post("http://localhost:5000/auth/register", {
-        name,
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "mern-ovuhinml1-daniyal-chs-projects.vercel.app/api/auth/register",
+        {
+          name,
+          email,
+          password,
+        }
+      );
 
       console.log(response);
 
