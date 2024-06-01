@@ -19,6 +19,10 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+res.setHeader("Access-Control-Allow-Headers", "X-Requested-With, content-type");
+
+res.setHeader("Access-Control-Allow-Headers", "X-Requested-With");
+
 // * Connect to db
 connectDB();
 

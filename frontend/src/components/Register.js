@@ -65,7 +65,7 @@ function Register() {
       });
     } else {
       const response = await axios.post(
-        "mern-faand52yw-daniyal-chs-projects.vercel.app/auth/register",
+        "https://mern-faand52yw-daniyal-chs-projects.vercel.app/auth/register",
         {
           name,
           email,
