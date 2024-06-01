@@ -66,7 +66,7 @@ function Register() {
     } else {
       try {
         const response = await axios.post(
-          "https://mern-ovuhinml1-daniyal-chs-projects.vercel.app/api/auth/register",
+          "https://mern-app-olive.vercel.app/api/auth/register",
           {
             name,
             email,
