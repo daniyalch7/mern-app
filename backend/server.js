@@ -11,19 +11,7 @@ const questionRoutes = require("./routes/questions");
 const answerRoutes = require("./routes/answers");
 
 const app = express();
-
-const corsOptions = {
-  origin: "http://localhost:3000", // Allow requests from this origin
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed methods
-  allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
-  credentials: true, // Include cookies in requests sent to the server
-};
-
-// Apply CORS middleware
-app.use(cors(corsOptions));
-
-// Handle preflight requests
-app.options("*", cors(corsOptions));
+app.use(cors());
 
 // * Connect to db
 connectDB();

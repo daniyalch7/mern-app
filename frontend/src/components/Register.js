@@ -64,34 +64,20 @@ function Register() {
         theme: "light",
       });
     } else {
-      try {
-        const response = await axios.post(
-          "https://mern-app-olive.vercel.app/api/auth/register",
-          {
-            name,
-            email,
-            password,
-          }
-        );
+      const response = await axios.post(
+        "http://localhost:5000/api/auth/register",
+        {
+          name,
+          email,
+          password,
+        }
+      );
 
-        console.log(response);
+      console.log(response);
 
-        dispatch(storeUserData(response.data));
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("user", JSON.stringify(response.data.user));
-      } catch (error) {
-        console.error("Error during registration:", error);
-        toast.error("Registration failed!", {
-          position: "top-center",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      }
+      dispatch(storeUserData(response.data));
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
     }
   };
 
