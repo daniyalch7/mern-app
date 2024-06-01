@@ -65,7 +65,7 @@ function Register() {
       });
     } else {
       const response = await axios.post(
-        "https://mern-app-tneq.onrender.com/auth/register",
+        "mern-faand52yw-daniyal-chs-projects.vercel.app/auth/register",
         {
           name,
           email,
