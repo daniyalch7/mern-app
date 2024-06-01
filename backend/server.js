@@ -14,14 +14,12 @@ const app = express();
 
 const corsOptions = {
   origin: "http://localhost:3000",
-  credentials: true, //access-control-allow-credentials:true
-  optionSuccessStatus: 200,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true, // If you need to allow cookies or other credentials
 };
+
 app.use(cors(corsOptions));
-
-res.setHeader("Access-Control-Allow-Headers", "X-Requested-With, content-type");
-
-res.setHeader("Access-Control-Allow-Headers", "X-Requested-With");
 
 // * Connect to db
 connectDB();
